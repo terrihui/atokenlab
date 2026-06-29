@@ -96,6 +96,10 @@
     position:relative;
     background:#04070F;
   }
+  .photo-banner{
+    position:relative;
+    background:#04070F;
+  }
   .hero-img{ width:100%; height:auto; display:block; }
   .hero-img-mobile{ display:none; }
   @media (max-width:860px){
@@ -144,6 +148,34 @@
   }
   .vision-card .eyebrow{ color:var(--orange); margin-bottom:14px; }
   .vision-card p{ color:var(--ink-dim); font-size:16px; margin:0; max-width:760px; }
+
+  /* Contact */
+  .contact-wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;
+  }
+  .contact-info{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:18px;
+    padding:32px;
+  }
+  .contact-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:20px; }
+  .contact-list li{ display:flex; gap:14px; align-items:flex-start; font-size:15px; color:var(--ink-dim); }
+  .contact-list .ic{
+    width:38px; height:38px; flex-shrink:0; border-radius:50%;
+    background:rgba(242,146,43,0.1); border:1px solid rgba(242,146,43,0.3);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+  .contact-list a{ color:#fff; text-decoration:none; }
+  .contact-list a:hover{ color:var(--orange); }
+  .contact-list .label{ display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--cyan); margin-bottom:4px; }
+  .map-frame{
+    border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    min-height:340px;
+  }
+  .map-frame iframe{ width:100%; height:100%; min-height:340px; border:0; display:block; }
+
+  @media (max-width: 860px){
+    .contact-wrap{ grid-template-columns:1fr; }
+  }
 
   @media (max-width: 640px){
     .about-founder{ grid-template-columns:1fr; text-align:left; }
@@ -275,7 +307,103 @@
   </section>
   <!-- =================== END ABOUT US =================== -->
 
-  <!-- Future sections (Programs / Learning Space / Updates / Contact) will be added here as content is finalized -->
+  <!-- ===================== PROGRAMS ===================== -->
+  <section id="programs" class="photo-banner">
+    <img src="images/programs.png" alt="A Token Lab — Programs" class="hero-img hero-img-desktop">
+    <img src="images/programsmobile.png" alt="A Token Lab — Programs" class="hero-img hero-img-mobile">
+  </section>
+  <!-- ================= END PROGRAMS ===================== -->
+
+  <!-- =================== LEARNING SPACE ================== -->
+  <section id="space" class="photo-banner">
+    <img src="images/space.png" alt="A Token Lab — Learning Space" class="hero-img hero-img-desktop">
+    <img src="images/spacemobile.png" alt="A Token Lab — Learning Space" class="hero-img hero-img-mobile">
+  </section>
+  <!-- ================ END LEARNING SPACE ================= -->
+
+  <!-- ===================== UPDATES ===================== -->
+  <section id="updates" class="section">
+    <div class="section-head">
+      <span class="eyebrow">
+        <span data-en>Updates</span>
+        <span data-zh lang-zh>最新消息</span>
+      </span>
+      <h2>
+        <span data-en>Latest from Facebook</span>
+        <span data-zh lang-zh>Facebook 最新動態</span>
+      </h2>
+    </div>
+    <!--
+      TODO: Facebook Page Plugin goes here once we have the real Page URL
+      (not a share link — needs the actual facebook.com/YourPageName format).
+      Once you send it, this will be replaced with Facebook's embed code, e.g.:
+
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+      </script>
+      <div class="fb-page" data-href="https://www.facebook.com/YourPageName"
+        data-tabs="timeline" data-width="500" data-height="700"
+        data-small-header="false" data-adapt-container-width="true"
+        data-hide-cover="false" data-show-facepile="true">
+      </div>
+    -->
+    <p style="color:var(--ink-dim); font-size:15px;">
+      <span data-en>Facebook feed will appear here once connected.</span>
+      <span data-zh lang-zh>連接後，Facebook 動態將顯示於此。</span>
+    </p>
+  </section>
+  <!-- =================== END UPDATES ==================== -->
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="section">
+    <div class="section-head">
+      <span class="eyebrow">
+        <span data-en>Contact</span>
+        <span data-zh lang-zh>聯絡我們</span>
+      </span>
+      <h2>
+        <span data-en>Get in Touch</span>
+        <span data-zh lang-zh>聯絡我們</span>
+      </h2>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <ul class="contact-list">
+          <li>
+            <span class="ic">📍</span>
+            <span>
+              <span class="label"><span data-en>Address</span><span data-zh lang-zh>地址</span></span>
+              <span data-zh lang-zh>香港元朗民合徑8號幸福樓二期17號舖閣樓</span>
+              <span data-en>Mezzanine, Shop 17, Phase 2, Hang Fook House, 8 Man Hop Path, Yuen Long, Hong Kong</span>
+            </span>
+          </li>
+          <li>
+            <span class="ic">📞</span>
+            <span>
+              <span class="label"><span data-en>Phone</span><span data-zh lang-zh>電話</span></span>
+              <a href="tel:+85295671228">9567 1228</a>
+            </span>
+          </li>
+          <li>
+            <span class="ic">✉️</span>
+            <span>
+              <span class="label"><span data-en>Email</span><span data-zh lang-zh>電郵</span></span>
+              <a href="mailto:support@atokenlab.com">support@atokenlab.com</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://maps.google.com/maps?q=%E9%A6%99%E6%B8%AF%E5%85%83%E6%9C%97%E6%B0%91%E5%90%88%E5%BE%848%E8%99%9F%E5%B9%B8%E7%A6%8F%E6%A8%9B%E4%BA%8C%E6%9C%9F17%E8%99%9F%E8%88%96%E9%96%A3%E6%A8%93&output=embed"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="A Token Lab location map">
+        </iframe>
+      </div>
+    </div>
+  </section>
+  <!-- =================== END CONTACT ==================== -->
 
 </main>
 
