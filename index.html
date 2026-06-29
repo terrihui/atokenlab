@@ -94,30 +94,22 @@
   /* Hero */
   .hero{
     position:relative;
-    overflow:hidden;
-    min-height:78vh;
-    display:flex;
-    align-items:flex-end;
-    padding:0 24px 56px;
-    background:
-      linear-gradient(180deg, rgba(5,11,23,0) 55%, rgba(5,11,23,0.55) 100%),
-      url('images/herodesktop.png') no-repeat center center/cover;
+    background:#04070F;
+  }
+  .hero-img{ width:100%; height:auto; display:block; }
+  .hero-img-mobile{ display:none; }
+  @media (max-width:860px){
+    .hero-img-desktop{ display:none; }
+    .hero-img-mobile{ display:block; }
+  }
+  .hero-cta-overlay{
+    position:absolute; bottom:24px; left:0; right:0;
+    display:flex; justify-content:center;
   }
   @media (max-width:860px){
-    .hero{
-      min-height:62vh;
-      background:
-        linear-gradient(180deg, rgba(5,11,23,0) 50%, rgba(5,11,23,0.7) 100%),
-        url('images/heromobile.png') no-repeat center top/cover;
-    }
+    .hero-cta-overlay{ bottom:16px; }
   }
-  .hero-inner{
-    position:relative; z-index:2;
-    max-width:var(--max); margin:0 auto;
-    width:100%;
-  }
-  .hero-cta-only{ display:flex; justify-content:center; }
-  .btn-large{ padding:16px 36px; font-size:16px; background:rgba(5,11,23,0.55); backdrop-filter:blur(6px); }
+  .btn-large{ padding:14px 30px; font-size:15px; background:rgba(5,11,23,0.6); backdrop-filter:blur(6px); }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-size:13px; letter-spacing:2px; text-transform:uppercase;
@@ -181,8 +173,11 @@
       box-shadow:-8px 0 24px rgba(0,0,0,0.4); border-left:1px solid var(--line);
     }
     nav.main-nav.open{ transform:translateX(0); }
-    .menu-toggle{ display:block; }
-    .btn-nav{ width:100%; justify-content:center; }
+    .menu-toggle{ display:block; order:3; font-size:20px; }
+    .btn-nav{ order:2; padding:8px 14px; font-size:12.5px; gap:4px; white-space:nowrap; }
+    .nav-container{ flex-wrap:nowrap; gap:8px; padding:14px 16px; }
+    .logo-text{ font-size:15px; }
+    .lang-toggle{ padding:6px 9px; font-size:11px; }
   }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
@@ -219,8 +214,8 @@
       <a href="#space"><span data-en>Learning Space</span><span data-zh lang-zh>學習空間</span></a>
       <a href="#updates"><span data-en>Updates</span><span data-zh lang-zh>最新消息</span></a>
       <a href="#contact"><span data-en>Contact</span><span data-zh lang-zh>聯絡我們</span></a>
-      <a href="https://hihanako.com" class="btn btn-ghost btn-nav">▶ <span data-en>Go to Online Course</span><span data-zh lang-zh>前往網上課堂</span></a>
     </nav>
+    <a href="https://hihanako.com" class="btn btn-ghost btn-nav"><span class="nav-btn-text">▶ <span data-en>Go to Online Course</span><span data-zh lang-zh>前往網上課堂</span></span></a>
     <div class="nav-right" style="display:none;" id="navRightDesktop"></div>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">
       🌐 <span data-en>EN</span><span data-zh lang-zh>中文</span>
@@ -230,10 +225,10 @@
 
 <main id="main">
   <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-cta-only">
-        <a href="https://hihanako.com" class="btn btn-ghost btn-large">▶ <span data-en>Go to Online Course</span><span data-zh lang-zh>前往網上課堂</span></a>
-      </div>
+    <img src="images/herodesktop.png" alt="A Token Lab — STEM and AI learning space" class="hero-img hero-img-desktop">
+    <img src="images/heromobile.png" alt="A Token Lab — STEM and AI learning space" class="hero-img hero-img-mobile">
+    <div class="hero-cta-overlay">
+      <a href="https://hihanako.com" class="btn btn-ghost btn-large">▶ <span data-en>Go to Online Course</span><span data-zh lang-zh>前往網上課堂</span></a>
     </div>
   </section>
 
