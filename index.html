@@ -95,97 +95,34 @@
   .hero{
     position:relative;
     overflow:hidden;
-    padding:64px 24px 88px;
+    min-height:78vh;
+    display:flex;
+    align-items:flex-end;
+    padding:0 24px 56px;
     background:
-      linear-gradient(120deg, rgba(5,11,23,0.80) 0%, rgba(5,11,23,0.35) 55%, rgba(5,11,23,0.7) 100%),
+      linear-gradient(180deg, rgba(5,11,23,0) 55%, rgba(5,11,23,0.55) 100%),
       url('images/herodesktop.png') no-repeat center center/cover;
   }
   @media (max-width:860px){
     .hero{
+      min-height:62vh;
       background:
-        linear-gradient(180deg, rgba(5,11,23,0.55) 0%, rgba(5,11,23,0.45) 40%, rgba(5,11,23,0.92) 85%),
+        linear-gradient(180deg, rgba(5,11,23,0) 50%, rgba(5,11,23,0.7) 100%),
         url('images/heromobile.png') no-repeat center top/cover;
     }
   }
   .hero-inner{
     position:relative; z-index:2;
     max-width:var(--max); margin:0 auto;
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
+    width:100%;
   }
+  .hero-cta-only{ display:flex; justify-content:center; }
+  .btn-large{ padding:16px 36px; font-size:16px; background:rgba(5,11,23,0.55); backdrop-filter:blur(6px); }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-size:13px; letter-spacing:2px; text-transform:uppercase;
     color:var(--orange); font-weight:700; margin-bottom:20px;
   }
-  .hero h1{
-    font-size:clamp(40px, 6vw, 72px); font-weight:700; line-height:1.05;
-    color:#fff; margin:0 0 16px;
-  }
-  .hero-tagline{
-    font-size:clamp(17px, 2vw, 21px); color:var(--orange); font-weight:500;
-    margin:0 0 28px;
-  }
-  .hero-tagline-divider{
-    width:48px; height:2px; background:var(--orange); margin:0 0 24px;
-  }
-  .hero-zh-name{
-    font-size:clamp(26px, 3vw, 34px); font-weight:700; color:#fff; margin:0 0 6px;
-  }
-  .hero-zh-motto{ color:var(--orange); font-size:16px; margin:0 0 24px; }
-  .hero-desc{ color:var(--ink-dim); font-size:16px; max-width:520px; margin:0 0 36px; }
-  .hero-desc .zh-line{ display:block; margin-top:6px; color:rgba(232,238,248,0.55); font-size:15px; }
-  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
-
-  .hero-visual{ position:relative; display:flex; justify-content:center; }
-  .hero-panel{
-    position:relative; width:100%; max-width:380px;
-    border:1px solid rgba(63,191,255,0.35); border-radius:20px;
-    background:rgba(63,191,255,0.05);
-    padding:28px; backdrop-filter:blur(4px);
-  }
-  .hero-panel-label{
-    position:absolute; top:-13px; left:24px; background:var(--bg);
-    padding:0 10px; font-size:12px; letter-spacing:2px; color:var(--cyan); text-transform:uppercase;
-  }
-  .flow-row{ display:flex; align-items:center; justify-content:space-between; gap:6px; margin-top:8px; }
-  .flow-step{ display:flex; flex-direction:column; align-items:center; gap:8px; flex:1; }
-  .flow-icon{
-    width:52px; height:52px; border-radius:50%;
-    background:rgba(63,191,255,0.1); border:1px solid rgba(63,191,255,0.3);
-    display:flex; align-items:center; justify-content:center; font-size:22px;
-  }
-  .flow-step span{ font-size:12px; letter-spacing:1.5px; color:var(--ink-dim); text-transform:uppercase; }
-  .flow-arrow{ color:var(--cyan); font-size:18px; opacity:0.6; }
-  .token-badge{
-    position:absolute; bottom:-20px; right:-14px;
-    width:88px; height:88px; border-radius:16px;
-    background:rgba(5,11,23,0.9); border:1px solid rgba(242,146,43,0.4);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 0 30px rgba(242,146,43,0.15);
-  }
-  .token-badge .logo-mark{ width:42px; height:42px; }
-
-  /* Feature cards */
-  .features{
-    max-width:var(--max); margin:0 auto; padding:0 24px;
-    position:relative; z-index:2;
-    margin-top:-32px;
-  }
-  .feature-grid{
-    display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;
-  }
-  .feature-card{
-    background:var(--bg-card); border:1px solid var(--line); border-radius:16px;
-    padding:26px 22px;
-  }
-  .feature-icon{
-    width:42px; height:42px; margin-bottom:18px;
-    display:flex; align-items:center; justify-content:center;
-    color:var(--ink);
-  }
-  .feature-card h3{ margin:0 0 10px; font-size:17px; color:#fff; font-weight:700; line-height:1.35; }
-  .feature-card p{ margin:0 0 16px; font-size:14px; color:var(--ink-dim); }
-  .feature-rule{ width:32px; height:2px; background:var(--orange); }
 
   /* Generic sections */
   .section{ max-width:var(--max); margin:0 auto; padding:96px 24px; }
@@ -236,9 +173,6 @@
   .footer-logo .logo-mark{ width:28px; height:28px; }
   .footer-logo span{ font-family:'Space Grotesk', sans-serif; font-weight:700; color:#fff; font-size:16px; }
 
-  @media (max-width: 980px){
-    .feature-grid{ grid-template-columns:repeat(2, 1fr); }
-  }
   @media (max-width: 860px){
     nav.main-nav{
       position:fixed; top:0; right:0; height:100vh; width:78%; max-width:300px;
@@ -248,12 +182,7 @@
     }
     nav.main-nav.open{ transform:translateX(0); }
     .menu-toggle{ display:block; }
-    .hero-inner{ grid-template-columns:1fr; text-align:center; }
-    .hero-visual{ order:1; margin-bottom:8px; }
-    .hero-ctas{ justify-content:center; }
-    .hero-tagline-divider{ margin-left:auto; margin-right:auto; }
-    .feature-grid{ grid-template-columns:1fr; }
-    .features{ margin-top:24px; }
+    .btn-nav{ width:100%; justify-content:center; }
   }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
@@ -290,7 +219,7 @@
       <a href="#space"><span data-en>Learning Space</span><span data-zh lang-zh>學習空間</span></a>
       <a href="#updates"><span data-en>Updates</span><span data-zh lang-zh>最新消息</span></a>
       <a href="#contact"><span data-en>Contact</span><span data-zh lang-zh>聯絡我們</span></a>
-      <a href="#contact" class="btn btn-primary"><span data-en>Join Waitlist</span><span data-zh lang-zh>加入候補名單</span> →</a>
+      <a href="https://hihanako.com" class="btn btn-ghost btn-nav">▶ <span data-en>Go to Online Course</span><span data-zh lang-zh>前往網上課堂</span></a>
     </nav>
     <div class="nav-right" style="display:none;" id="navRightDesktop"></div>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">
@@ -302,89 +231,8 @@
 <main id="main">
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-text">
-        <span class="eyebrow">
-          <span data-en>STEM & AI Education Lab</span>
-          <span data-zh lang-zh>STEM 與 AI 教育實驗室</span>
-        </span>
-        <h1>A Token Lab</h1>
-        <p class="hero-tagline">Limited Tokens. Unlimited Creation.</p>
-        <div class="hero-tagline-divider"></div>
-        <p class="hero-zh-name" lang-zh>A元智研</p>
-        <p class="hero-zh-motto" lang-zh>學之一時，用之一生。</p>
-        <p class="hero-desc">
-          <span data-en>Our classroom is currently arranged as a simulated starry learning space as we prepare for opening.</span>
-          <span class="zh-line" lang-zh>課室現時仍為模擬星空學習空間，並正籌備正式開幕。</span>
-        </p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary">🚀 <span data-en>Join Waitlist</span><span data-zh lang-zh>加入候補名單</span> →</a>
-          <a href="https://hihanako.com" class="btn btn-ghost">▶ <span data-en>Go to Online Course</span><span data-zh lang-zh>前往網上課堂</span></a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-panel">
-          <span class="hero-panel-label">A Token Lab</span>
-          <div class="flow-row">
-            <div class="flow-step">
-              <div class="flow-icon">💡</div>
-              <span>Idea</span>
-            </div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step">
-              <div class="flow-icon">&lt;/&gt;</div>
-              <span>Code</span>
-            </div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step">
-              <div class="flow-icon">◇</div>
-              <span>Impact</span>
-            </div>
-          </div>
-          <div class="token-badge">
-            <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 20C12 15.5817 15.5817 12 20 12C24.4183 12 28 15.5817 28 20C28 24.4183 24.4183 28 20 28C15.5817 28 12 24.4183 12 20Z" stroke="#F2922B" stroke-width="2.4"/>
-              <path d="M4 20C4 13.3726 9.37258 8 16 8C21 8 24 12 28 16C31 19 34 20 36 20" stroke="#F2922B" stroke-width="2.4" stroke-linecap="round"/>
-              <path d="M36 20C36 26.6274 30.6274 32 24 32C19 32 16 28 12 24C9 21 6 20 4 20" stroke="#F2922B" stroke-width="2.4" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="19" cy="19" r="3" fill="currentColor" stroke="none"/><ellipse cx="19" cy="19" rx="16" ry="6.5"/><ellipse cx="19" cy="19" rx="16" ry="6.5" transform="rotate(60 19 19)"/><ellipse cx="19" cy="19" rx="16" ry="6.5" transform="rotate(120 19 19)"/></svg>
-        </div>
-        <h3><span data-en>STEM & AI Education</span><span data-zh lang-zh>STEM 與 AI 教育</span></h3>
-        <p><span data-en>Future-ready skills for the next generation.</span><span data-zh lang-zh style="display:block;">為下一代準備未來所需技能。</span></p>
-        <div class="feature-rule"></div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 6c-5 0-8 4-8 8 0 3 1.5 5 3 6.5V25h10v-4.5c1.5-1.5 3-3.5 3-6.5 0-4-3-8-8-8z"/><path d="M15 29h8M16.5 32h5"/><line x1="19" y1="6" x2="19" y2="3"/></svg>
-        </div>
-        <h3><span data-en>Project-Based Learning</span><span data-zh lang-zh>專題式學習</span></h3>
-        <p><span data-en>Learn by doing. Build real-world solutions.</span><span data-zh lang-zh style="display:block;">從實踐中學習，建構現實世界的方案。</span></p>
-        <div class="feature-rule"></div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="13" cy="14" r="4"/><circle cx="25" cy="14" r="4"/><path d="M5 30c0-4.5 3.5-8 8-8s8 3.5 8 8M17 30c0-4.5 3.5-8 8-8s8 3.5 8 8"/></svg>
-        </div>
-        <h3><span data-en>Innovate Together</span><span data-zh lang-zh>共同創新</span></h3>
-        <p><span data-en>Collaborate, inspire, create limitless impact.</span><span data-zh lang-zh style="display:block;">協作啟發，創造無限可能。</span></p>
-        <div class="feature-rule"></div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 4l4.5 9.5L34 15l-7.5 7 2 10.5L19 27l-9.5 5.5 2-10.5L4 15l10.5-1.5z"/></svg>
-        </div>
-        <h3><span data-en>Future Starts Here</span><span data-zh lang-zh>未來由此開始</span></h3>
-        <p><span data-en>A simulated space today, a real impact tomorrow.</span><span data-zh lang-zh style="display:block;">今日的模擬空間，明日的真實影響。</span></p>
-        <div class="feature-rule"></div>
+      <div class="hero-cta-only">
+        <a href="https://hihanako.com" class="btn btn-ghost btn-large">▶ <span data-en>Go to Online Course</span><span data-zh lang-zh>前往網上課堂</span></a>
       </div>
     </div>
   </section>
