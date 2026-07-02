@@ -333,31 +333,20 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        height: 700px; /* 設置預設高度 */
       }
-      .fb-responsive-container .fb-page,
-      .fb-responsive-container .fb-page span,
-      .fb-responsive-container .fb-page iframe {
-        width: 100% !important;
-      }
-      /* 在電腦端（大於500px）自動執行等比例放大，打破臉書 500px 限制 */
-      @media (min-width: 501px) {
-        .fb-responsive-container {
-          padding-bottom: 700px;
-          height: 0;
-        }
-        .fb-responsive-container .fb-page {
-          position: absolute;
-          top: 0; left: 0;
-          transform-origin: top left;
-          transform: scale(calc(100% / 500));
-        }
+      .fb-responsive-container .fb-page {
+        width: 500px !important; /* 鎖定500px基礎寬度以作等比例縮放 */
+        position: absolute;
+        top: 0; left: 0;
+        transform-origin: top left;
       }
     </style>
 
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v18.0"></    
-    
-    <div class="fb-responsive-container" style="text-align: center;">
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v18.0"></script>
+
+    <div class="fb-responsive-container">
       <div class="fb-page" 
            data-href="https://www.facebook.com/61589554812024" 
            data-tabs="timeline" 
@@ -367,19 +356,11 @@
            data-adapt-container-width="true" 
            data-hide-cover="false" 
            data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/61589554812024" class="fb-xfbml-parse-ignore" style="margin: 0; padding: 100px 20px;">
-          <p style="color: var(--ink-dim); margin-bottom: 20px;">
-            <span data-en>Loading Facebook updates...</span>
-            <span data-zh lang-zh>正在載入 Facebook 動態...</span>
-          </p>
-          <a href="https://www.facebook.com/61589554812024" target="_blank" class="btn btn-primary" style="font-size: 14px; padding: 10px 20px;">
-            <span data-en>Visit Our Facebook Page</span>
-            <span data-zh lang-zh>前往我們的 Facebook 專頁</span>
-          </a>
+        <blockquote cite="https://www.facebook.com/61589554812024" class="fb-xfbml-parse-ignore">
+          <a href="https://www.facebook.com/61589554812024">A Token Lab</a>
         </blockquote>
       </div>
     </div>
-
   </section>
   <section id="contact" class="section">
     <div class="section-head">
@@ -464,6 +445,37 @@
     const current = htmlEl.getAttribute('data-lang');
     htmlEl.setAttribute('data-lang', current === 'en' ? 'zh' : 'en');
   });
+
+  // Facebook Page 自動響應等比例縮放邏輯
+  function resizeFBWidget() {
+    const container = document.querySelector('.fb-responsive-container');
+    const fbPage = container ? container.querySelector('.fb-page') : null;
+    if (!container || !fbPage) return;
+
+    // 取得當前外層容器的實際寬度
+    const containerWidth = container.parentElement.offsetWidth;
+    
+    // 扣除 padding 影響（例如 section 有左右 24px padding，共 48px）
+    const targetWidth = containerWidth - 48; 
+
+    if (targetWidth > 500) {
+      // 電腦端：大過 500px 時動態計算純數字比例
+      const scale = targetWidth / 500;
+      fbPage.style.transform = `scale(${scale})`;
+      container.style.height = `${700 * scale}px`; // 同步把外框高度拉大，避免遮擋
+    } else {
+      // 手機端：回復正常顯示
+      fbPage.style.transform = 'none';
+      fbPage.style.width = '100% !important';
+      container.style.height = '700px';
+    }
+  }
+
+  // 監聽各種載入與縮放事件，確保 Facebook Iframe 渲染時能捕捉到
+  window.addEventListener('resize', resizeFBWidget);
+  window.addEventListener('load', resizeFBWidget);
+  setTimeout(resizeFBWidget, 1000);
+  setTimeout(resizeFBWidget, 2500); // 雙重保險，防止 FB SDK 載入較慢
 </script>
 </body>
 </html>
