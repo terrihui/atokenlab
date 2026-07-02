@@ -253,7 +253,6 @@
     <img src="images/heromobile.png" alt="A Token Lab — STEM and AI learning space" class="hero-img hero-img-mobile">
   </section>
 
-  <!-- ===================== ABOUT US ===================== -->
   <section id="about" class="section about-section">
     <div class="section-head">
       <span class="eyebrow">
@@ -305,23 +304,14 @@
       <p data-zh lang-zh>突破傳統被動學習模式，培養學生主動探索、獨立思考、勇於實踐的特質。平衡科技邏輯與創意表達，讓學生累積底氣與實力，從容迎向未來挑戰。</p>
     </div>
   </section>
-  <!-- =================== END ABOUT US =================== -->
-
-  <!-- ===================== PROGRAMS ===================== -->
   <section id="programs" class="photo-banner">
     <img src="images/programs.png" alt="A Token Lab — Programs" class="hero-img hero-img-desktop">
     <img src="images/programsmobile.png" alt="A Token Lab — Programs" class="hero-img hero-img-mobile">
   </section>
-  <!-- ================= END PROGRAMS ===================== -->
-
-  <!-- =================== LEARNING SPACE ================== -->
   <section id="space" class="photo-banner">
     <img src="images/space.png" alt="A Token Lab — Learning Space" class="hero-img hero-img-desktop">
     <img src="images/spacemobile.png" alt="A Token Lab — Learning Space" class="hero-img hero-img-mobile">
   </section>
-  <!-- ================ END LEARNING SPACE ================= -->
-
-  <!-- ===================== UPDATES ===================== -->
   <section id="updates" class="section">
     <div class="section-head">
       <span class="eyebrow">
@@ -333,29 +323,56 @@
         <span data-zh lang-zh>Facebook 最新動態</span>
       </h2>
     </div>
-    <!--
-      TODO: Facebook Page Plugin goes here once we have the real Page URL
-      (not a share link — needs the actual facebook.com/YourPageName format).
-      Once you send it, this will be replaced with Facebook's embed code, e.g.:
 
-      <div id="fb-root"></div>
-      <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
-      </script>
-      <div class="fb-page" data-href="https://www.facebook.com/YourPageName"
-        data-tabs="timeline" data-width="500" data-height="700"
-        data-small-header="false" data-adapt-container-width="true"
-        data-hide-cover="false" data-show-facepile="true">
+    <style>
+      .fb-responsive-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        background: var(--bg-card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+      .fb-responsive-container .fb-page,
+      .fb-responsive-container .fb-page span,
+      .fb-responsive-container .fb-page iframe {
+        width: 100% !important;
+      }
+      /* 在電腦端（大於500px）自動執行等比例放大，打破臉書 500px 限制 */
+      @media (min-width: 501px) {
+        .fb-responsive-container {
+          padding-bottom: 700px;
+          height: 0;
+        }
+        .fb-responsive-container .fb-page {
+          position: absolute;
+          top: 0; left: 0;
+          transform-origin: top left;
+          transform: scale(calc(100% / 500));
+        }
+      }
+    </style>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v18.0"></script>
+
+    <div class="fb-responsive-container">
+      <div class="fb-page" 
+           data-href="https://www.facebook.com/61589554812024" 
+           data-tabs="timeline" 
+           data-width="500" 
+           data-height="700" 
+           data-small-header="false" 
+           data-adapt-container-width="true" 
+           data-hide-cover="false" 
+           data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/61589554812024" class="fb-xfbml-parse-ignore">
+          <a href="https://www.facebook.com/61589554812024">A Token Lab</a>
+        </blockquote>
       </div>
-    -->
-    <p style="color:var(--ink-dim); font-size:15px;">
-      <span data-en>Facebook feed will appear here once connected.</span>
-      <span data-zh lang-zh>連接後，Facebook 動態將顯示於此。</span>
-    </p>
+    </div>
   </section>
-  <!-- =================== END UPDATES ==================== -->
-
-  <!-- ===================== CONTACT ===================== -->
   <section id="contact" class="section">
     <div class="section-head">
       <span class="eyebrow">
@@ -403,9 +420,7 @@
       </div>
     </div>
   </section>
-  <!-- =================== END CONTACT ==================== -->
-
-</main>
+  </main>
 
 <footer>
   <div class="footer-logo">
@@ -416,7 +431,7 @@
     </svg>
     <span>A Token Lab</span>
   </div>
-  <p>&copy; 2026 A Token Lab. All Rights Reserved.</p>
+  <p>© 2026 A Token Lab. All Rights Reserved.</p>
 </footer>
 
 <script>
